@@ -1,0 +1,45 @@
+{
+    "device_type": "hu_tem_sensor_cn",
+    "title": "Temperature and Humidity sensor",
+    "group": "g-climate-sensor",
+    "device": {
+        "name": "Temperature and Humidity sensor",
+        "id": "hu_tem_sensor_cn",
+        "groups": [
+            {
+                "title": "Channels",
+                "id": "channels",
+                "order": 0
+            }
+        ],
+        "channels": [
+            {
+                "name": "Temperature",
+                "reg_type": "holding",
+                "address": 1,
+                "type": "temperature",
+                "group": "channels",
+                "readonly": true,
+                "scale": 0.1,
+                "read_period_ms": 10000
+            },
+            {
+                "name": "Humidity",
+                "reg_type": "holding",
+                "address": 1,
+                "type": "rel_humidity",
+                "group": "channels",
+                "readonly": true,
+                "scale": 0.1,
+                "read_period_ms": 10000
+            }
+        ],
+        "translations": {
+            "ru": {
+                "Channels": "Каналы",
+                "Temperature": "Температура",
+                "Humidity": "Влажность"
+            }
+        }
+    }
+}
