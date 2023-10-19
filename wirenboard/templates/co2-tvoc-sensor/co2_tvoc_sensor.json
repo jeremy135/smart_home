@@ -1,0 +1,84 @@
+{
+    "device_type": "co2_tvoc_sensor_cn",
+    "title": "CO2 and TVOC sensor",
+    "group": "g-climate-sensor",
+    "device": {
+        "name": "CO2 and TVOC sensor",
+        "id": "co2_tvoc_sensor_cn",
+        "groups": [
+            {
+                "title": "Channels",
+                "id": "channels",
+                "order": 0
+            },
+            {
+                "title": "Settings",
+                "id": "settings",
+                "order": 1
+            }
+        ],
+        "parameters": {
+            "modbus_address": {
+                "title": "Modbus adress",
+                "address": 64,
+                "reg_type": "holding",
+                "min": 1,
+                "max": 256,
+                "default": 1,
+                "order": 1
+            }
+        },
+        "channels": [
+            {
+                "name": "Temperature",
+                "reg_type": "holding",
+                "address": 0,
+                "type": "temperature",
+                "group": "channels",
+                "readonly": true,
+                "scale": 0.1,
+                "read_period_ms": 10000
+            },
+            {
+                "name": "Humidity",
+                "reg_type": "holding",
+                "address": 1,
+                "type": "rel_humidity",
+                "group": "channels",
+                "readonly": true,
+                "scale": 0.1,
+                "read_period_ms": 10000
+            },
+            {
+                "name": "CO2",
+                "reg_type": "holding",
+                "address": 6,
+                "type": "concentration",
+                "group": "channels",
+                "readonly": true,
+                "units": "ppm",
+                "scale": 1,
+                "read_period_ms": 10000
+            },
+            {
+                "name": "TVOC",
+                "reg_type": "holding",
+                "address": 7,
+                "group": "channels",
+                "units": "ppb",
+                "readonly": true,
+                "scale": 1,
+                "read_period_ms": 10000
+            }
+        ],
+        "translations": {
+            "ru": {
+                "Channels": "Каналы",
+                "Temperature": "Температура",
+                "Humidity": "Влажность",
+                "CO2": "Уровень CO₂",
+                "TVOC": "Качество воздуха (VOC)"
+            }
+        }
+    }
+}
