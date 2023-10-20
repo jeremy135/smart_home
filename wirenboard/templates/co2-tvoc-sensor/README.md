@@ -2,7 +2,7 @@
 
 Датчик температуры, влажности, CO2, TVOC 
 
-https://item.taobao.com/item.htm?spm=a21n57.1.0.0.30bd523cugZ9fm&id=587282807031&ns=1&abbucket=19#detail
+https://item.taobao.com/item.htm?spm=a21n57.1.0.0.30bd523cugZ9fm&id=646456865197&ns=1&abbucket=19#detail
 
 В папке так же картинки с регистрами устройства
 
