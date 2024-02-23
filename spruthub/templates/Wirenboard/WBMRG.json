@@ -1,0 +1,683 @@
+[
+  {
+    "name": "Цветная лента - общие настройки",
+    "manufacturer": "WirenBoard",
+    "model": "WBMRG",
+    "modelId": "WBMRG",
+    "init": {
+      "modelId": {
+        "type": "String",
+        "address": 200,
+        "function": "Input",
+        "length": 6
+      },
+      "firmware": {
+        "type": "String",
+        "address": 250,
+        "function": "Input",
+        "length": 15
+      }
+    },
+    "services": [
+      {
+        "name": "Цветная лента RGB",
+        "type": "Lightbulb",
+        "characteristics": [
+          {
+            "type": "Hue",
+            "link": [
+              {
+                "type": "Color",
+                "subType": "R",
+                "address": 2011,
+                "function": "Holding",
+                "pollingTime": 1000
+              },
+              {
+                "type": "Color",
+                "subType": "G",
+                "address": 2012,
+                "function": "Holding",
+                "pollingTime": 1000
+              },
+              {
+                "type": "Color",
+                "subType": "B",
+                "address": 2013,
+                "function": "Holding",
+                "pollingTime": 1000
+              }
+            ]
+          },
+          {
+            "type": "Saturation"
+          }
+        ]
+      }
+    ],
+    "options": [
+      {
+        "link": {
+          "type": "Integer",
+          "address": 128,
+          "function": "Holding"
+        },
+        "name": "Modbus-адрес устройства",
+        "value": 1,
+        "minValue": 1,
+        "maxValue": 252
+      },
+      {
+        "link": {
+          "type": "Integer",
+          "address": 9,
+          "function": "Holding"
+        },
+        "name": "Настройка частоты ШИМ выходов",
+        "value": 8,
+        "minValue": 1,
+        "maxValue": 240
+      },
+      {
+        "link": {
+          "type": "Integer",
+          "address": 2017,
+          "function": "Holding" 
+        },
+        "name": "Скорость непрерывного изменения цвета RGB ленты, период увеличения Hue на 1 градус",
+        "minValue": 3,
+        "maxValue": 10000
+      },
+      {
+        "link": {
+          "type": "Integer",
+          "address": 4000,
+          "function": "Holding"
+        },
+        "name": "Настройка режима работы диммера",
+        "value": 0,
+        "values": [
+          {
+            "value": 0,
+            "name": "W + W + W + W"
+          },
+          {
+            "value": 1,
+            "name": "2*W + W + W"
+          },
+          {
+            "value": 2,
+            "name": "CCT + W + W"
+          },
+          {
+            "value": 16,
+            "name": "W + W + 2*W"
+          },
+          {
+            "value": 17,
+            "name": "2*W + 2*W"
+          },
+          {
+            "value": 18,
+            "name": "CCT + 2*W"
+          },
+          {
+            "value": 32,
+            "name": "W + W + CCT"
+          },
+          {
+            "value": 33,
+            "name": "2*W + CCT"
+          },
+          {
+            "value": 34,
+            "name": "CCT + CCT"
+          },
+          {
+            "value": 256,
+            "name": "RGB + W"
+          },
+          {
+            "value": 512,
+            "name": "4*W"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Канал 1 - B",
+    "manufacturer": "WirenBoard", 
+    "model": "WBMRG",
+    "serial": "W1",
+    "services": [
+      {
+        "name": "Канал 1 - B",
+        "type": "Lightbulb", 
+        "value": 50,
+        "characteristics": [
+          {
+            "type": "On",
+            "link": {
+              "address": 0,
+              "function": "Coil",
+              "pollingTime": 1000
+            }
+          },
+          {
+            "type": "Brightness", 
+            "link": {
+              "address": 2000,
+              "function": "Holding",
+              "maxValue": 100,
+              "pollingTime": 1000 
+            }
+          }
+        ]
+      }
+    ],
+    "options":[
+      {
+          "link": {
+            "type": "Integer",
+            "address": 3000,
+            "function": "Holding"
+          },
+          "name": "Время увеличения яркости",
+          "value": 100,
+          "minValue": 0,
+          "maxValue": 30000
+      },
+      {
+        "link": {
+          "type": "Integer",
+          "address": 3100,
+          "function": "Holding"
+        },
+        "name": "Время уменьшения яркости",
+        "value": 100,
+        "minValue": 0,
+        "maxValue": 30000 
+      }
+    ]
+  },
+  {
+    "name": "Канал 2 - R",
+    "manufacturer": "WirenBoard", 
+    "model": "WBMRG",
+    "serial": "W2",
+    "services": [
+      {
+        "name": "Канал 2 - R",
+        "type": "Lightbulb", 
+        "value": 50,
+        "characteristics": [
+          {
+            "type": "On",
+            "link": {
+              "address": 1,
+              "function": "Coil",
+              "pollingTime": 1000
+            }
+          },
+          {
+            "type": "Brightness", 
+            "link": {
+              "address": 2001,
+              "function": "Holding",
+              "maxValue": 100,
+              "pollingTime": 1000 
+            }
+          }
+        ]
+      }
+    ],
+    "options":[
+      {
+          "link": {
+            "type": "Integer",
+            "address": 3001,
+            "function": "Holding"
+          },
+          "name": "Время увеличения яркости",
+          "value": 100,
+          "minValue": 0,
+          "maxValue": 30000
+      },
+      {
+        "link": {
+          "type": "Integer",
+          "address": 3101,
+          "function": "Holding"
+        },
+        "name": "Время уменьшения яркости",
+        "value": 100,
+        "minValue": 0,
+        "maxValue": 30000 
+      }
+    ]
+  },
+  {
+    "name": "Канал 3 - G",
+    "manufacturer": "WirenBoard", 
+    "model": "WBMRG",
+    "serial": "W3",
+    "services": [
+      {
+        "name": "Канал 3 - G",
+        "type": "Lightbulb", 
+        "value": 50,
+        "characteristics": [
+          {
+            "type": "On",
+            "link": {
+              "address": 2,
+              "function": "Coil",
+              "pollingTime": 1000
+            }
+          },
+          {
+            "type": "Brightness", 
+            "link": {
+              "address": 2002,
+              "function": "Holding",
+              "maxValue": 100,
+              "pollingTime": 1000 
+            }
+          }
+        ]
+      }
+    ],
+    "options":[
+      {
+          "link": {
+            "type": "Integer",
+            "address": 3002,
+            "function": "Holding"
+          },
+          "name": "Время увеличения яркости",
+          "value": 100,
+          "minValue": 0,
+          "maxValue": 30000
+      },
+      {
+        "link": {
+          "type": "Integer",
+          "address": 3102,
+          "function": "Holding"
+        },
+        "name": "Время уменьшения яркости",
+        "value": 100,
+        "minValue": 0,
+        "maxValue": 30000 
+      }
+    ]
+  },
+  {
+    "name": "Канал 4 - W",
+    "manufacturer": "WirenBoard", 
+    "model": "WBMRG",
+    "serial": "W4",
+    "services": [
+      {
+        "name": "Канал 4 - W",
+        "type": "Lightbulb", 
+        "value": 50,
+        "characteristics": [
+          {
+            "type": "On",
+            "link": {
+              "address": 3,
+              "function": "Coil",
+              "pollingTime": 1000
+            }
+          },
+          {
+            "type": "Brightness", 
+            "link": {
+              "address": 2003,
+              "function": "Holding",
+              "maxValue": 100,
+              "pollingTime": 1000 
+            }
+          }
+        ]
+      }
+    ],
+    "options":[
+      {
+          "link": {
+            "type": "Integer",
+            "address": 3003,
+            "function": "Holding"
+          },
+          "name": "Время увеличения яркости",
+          "value": 100,
+          "minValue": 0,
+          "maxValue": 30000
+      },
+      {
+        "link": {
+          "type": "Integer",
+          "address": 3103,
+          "function": "Holding"
+        },
+        "name": "Время уменьшения яркости",
+        "value": 100,
+        "minValue": 0,
+        "maxValue": 30000 
+      }
+    ]
+  },
+  {
+    "name": "Канал 1_2 B_R",
+    "manufacturer": "WirenBoard", 
+    "model": "WBMRG",
+    "serial": "W1W2",
+    "services": [
+      {
+        "name": "Канал 1_2 B_R",
+        "type": "Lightbulb", 
+        "value": 50,
+        "characteristics": [
+          {
+            "type": "Brightness", 
+            "link": {
+              "address": 2004,
+              "function": "Holding",
+              "maxValue": 100,
+              "pollingTime": 1000 
+            }
+          }
+        ]
+      }
+    ],
+    "options":[
+      {
+          "link": {
+            "type": "Integer",
+            "address": 3004,
+            "function": "Holding"
+          },
+          "name": "Время увеличения яркости",
+          "value": 100,
+          "minValue": 0,
+          "maxValue": 30000
+      },
+      {
+        "link": {
+          "type": "Integer",
+          "address": 3104,
+          "function": "Holding"
+        },
+        "name": "Время уменьшения яркости",
+        "value": 100,
+        "minValue": 0,
+        "maxValue": 30000 
+      }
+    ]
+  },
+  {
+    "name": "CCT1 Канал 1_2 B_R",
+    "manufacturer": "WirenBoard", 
+    "model": "WBMRG",
+    "serial": "CCT1",
+    "services": [
+      {
+        "name": "CCT1 Канал 1_2 B_R",
+        "type": "Lightbulb", 
+        "value": 50,
+        "characteristics": [
+          {
+            "type": "Brightness", 
+            "link": {
+              "address": 2008,
+              "function": "Holding",
+              "minValue": 0,
+              "maxValue": 100,
+              "pollingTime": 1000 
+            }
+          },
+          {
+            "type": "ColorTemperature",
+            "link": {
+              "address": 2007,
+              "function": "Holding",
+              "minValue": 0,
+              "maxValue": 400
+            },
+            "minValue": 0,
+            "maxValue": 100 
+          }
+        ]
+      }
+    ],
+    "options":[
+      {
+          "link": {
+            "type": "Integer",
+            "address": 3007,
+            "function": "Holding"
+          },
+          "name": "Время увеличения цветовой температуры",
+          "value": 100,
+          "minValue": 0,
+          "maxValue": 30000
+      },
+      {
+        "link": {
+          "type": "Integer",
+          "address": 3107,
+          "function": "Holding"
+        },
+        "name": "Время уменьшения цветовой температуры",
+        "value": 100,
+        "minValue": 0,
+        "maxValue": 30000 
+      },
+      {
+        "link": {
+          "type": "Integer",
+          "address": 3108,
+          "function": "Holding"
+        },
+        "name": "Время уменьшения яркости",
+        "value": 100,
+        "minValue": 0,
+        "maxValue": 30000 
+      },
+      {
+        "link": {
+          "type": "Integer",
+          "address": 3008,
+          "function": "Holding"
+        },
+        "name": "Время увеличения яркости",
+        "value": 100,
+        "minValue": 0,
+        "maxValue": 30000 
+      }
+    ]
+  },
+  {                                                                                                                      
+    "name": "CCT2 Канал 3_4 G_W",
+    "manufacturer": "WirenBoard", 
+    "model": "WBMRG",
+    "serial": "CCT2",
+    "services": [
+      {
+        "name": "CCT2 Канал 3_4 G_W",
+        "type": "Lightbulb", 
+        "value": 50,
+        "characteristics": [
+          {
+            "type": "Brightness", 
+            "link": {
+              "address": 2010,
+              "function": "Holding",
+              "minValue": 0,
+              "maxValue": 100,
+              "pollingTime": 1000 
+            }
+          },
+          {
+            "type": "ColorTemperature",
+            "link": {
+              "address": 2009,
+              "function": "Holding",
+              "minValue": 0,
+              "maxValue": 400,
+              "pollingTime": 1000 
+            },
+            "minValue": 0,
+            "maxValue": 100
+          }
+        ]
+      }
+    ],
+    "options":[
+      {
+          "link": {
+            "type": "Integer",
+            "address": 3009,
+            "function": "Holding"
+          },
+          "name": "Время увеличения цветовой температуры",
+          "value": 100,
+          "minValue": 0,
+          "maxValue": 30000
+      },
+      {
+        "link": {
+          "type": "Integer",
+          "address": 3010,
+          "function": "Holding"
+        },
+        "name": "Время увеличения яркости",
+        "value": 100,
+        "minValue": 0,
+        "maxValue": 30000 
+      },
+      {
+        "link": {
+          "type": "Integer",
+          "address": 3109,
+          "function": "Holding"
+        },
+        "name": "Время уменьшения цветовой температуры",
+        "value": 100,
+        "minValue": 0,
+        "maxValue": 30000 
+      },
+      {
+        "link": {
+          "type": "Integer",
+          "address": 3110,
+          "function": "Holding"
+        },
+        "name": "Время уменьшения яркости",
+        "value": 100,
+        "minValue": 0,
+        "maxValue": 30000 
+      }
+    ]
+  },
+  
+  {
+    "name": "Канал 3_4 G_W",
+    "manufacturer": "WirenBoard", 
+    "model": "WBMRG",
+    "serial": "W3W4",
+    "services": [
+      {
+        "name": "Канал 3_4 G_W",
+        "type": "Lightbulb", 
+        "value": 50,
+        "characteristics": [
+          {
+            "type": "Brightness", 
+            "link": {
+              "address": 2005,
+              "function": "Holding",
+              "maxValue": 100,
+              "pollingTime": 1000 
+            }
+          }
+        ]
+      }
+    ],
+    "options":[
+      {
+          "link": {
+            "type": "Integer",
+            "address": 3005,
+            "function": "Holding"
+          },
+          "name": "Время увеличения яркости",
+          "value": 100,
+          "minValue": 0,
+          "maxValue": 30000
+      },
+      {
+        "link": {
+          "type": "Integer",
+          "address": 3105,
+          "function": "Holding"
+        },
+        "name": "Время уменьшения яркости",
+        "value": 100,
+        "minValue": 0,
+        "maxValue": 30000 
+      }
+    ]
+  },
+
+  {
+    "name": "Канал 1_2_3_4 B_R_G_W",
+    "manufacturer": "WirenBoard", 
+    "model": "WBMRG",
+    "serial": "W1W2W3W4",
+    "services": [
+      {
+        "name": "Канал 1_2_3_4 B_R_G_W",
+        "type": "Lightbulb", 
+        "value": 50,
+        "characteristics": [
+          {
+            "type": "Brightness", 
+            "link": {
+              "address": 2006,
+              "function": "Holding",
+              "maxValue": 100,
+              "pollingTime": 1000 
+            }
+          }
+        ]
+      }
+    ],
+    "options":[
+      {
+          "link": {
+            "type": "Integer",
+            "address": 3006,
+            "function": "Holding"
+          },
+          "name": "Время увеличения яркости",
+          "value": 100,
+          "minValue": 0,
+          "maxValue": 30000
+      },
+      {
+        "link": {
+          "type": "Integer",
+          "address": 3106,
+          "function": "Holding"
+        },
+        "name": "Время уменьшения яркости",
+        "value": 100,
+        "minValue": 0,
+        "maxValue": 30000 
+      }
+    ]
+  }
+]
