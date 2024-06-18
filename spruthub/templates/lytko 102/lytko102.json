@@ -1,0 +1,110 @@
+{
+  "manufacturer": "Lytko 102 Climate",
+  "model": "102",
+  "status": "Done",
+  "services": [
+    {
+      "type": "Thermostat",
+      "characteristics": [
+        {
+          "type": "TargetTemperature",
+          "link": {
+            "type": "String",
+            "topicSearch": "climate/lytko/(.*)/state",
+            "topicGet": "climate/lytko/(1)/state",
+            "topicSet": "climate/lytko/(1)/temperature/set",
+            "checkValue": true,
+            "inFunc": "parseFloat(JSON.parse(value)['target_temp'])"
+          },
+          "minValue": 17,
+          "maxValue": 30,
+          "minStep": 1
+        },
+        {
+          "type": "CurrentTemperature",
+          "link": {
+            "type": "String",
+            "topicGet": "climate/lytko/(1)/state",
+            "checkValue": true,
+            "inFunc": "parseFloat(JSON.parse(value)['temp'])"
+          }
+        },
+        {
+          "type": "TargetHeatingCoolingState",
+          "link": {
+            "type": "String",
+            "topicSearch": "climate/lytko/(.*)/state",
+            "topicGet": "climate/lytko/(1)/state",
+            "topicSet": "climate/lytko/(1)/mode/set",
+            "map": {
+              "OFF": "off",
+              "HEAT": "heat",
+              "COOL": "cool",
+              "AUTO": "auto",
+              "FAN_ONLY": "fan_only",
+              "DRY": "dry"
+            },
+            "checkValue": true,
+            "inFunc": "parseFloat(JSON.parse(value)['mode'])"
+          }
+        },
+        {
+          "type": "CurrentHeatingCoolingState",
+          "link": {
+            "type": "String",
+            "topicGet": "climate/lytko/(1)/state",
+            "checkValue": true,
+            "inFunc": "parseFloat(JSON.parse(value)['mode'])"
+          }
+        },
+        {
+          "type": "C_FanSpeed",
+          "link": {
+            "type": "String",
+            "topicGet": "climate/lytko/(1)/state",
+            "topicSet": "climate/lytko/(1)/fan/set",
+            "checkValue": true,
+            "inFunc": "parseFloat(JSON.parse(value)['fan'])",
+            "map": {
+              "AUTO": "auto",
+              "LOW": "1",
+              "MEDIUM": "2",
+              "HIGH": "3",
+              "TURBO": "turbo",
+              "QUATE": "quiet"
+            }
+          }
+        },
+        {
+          "type": "SwingMode",
+          "link": {
+            "type": "String",
+            "topicGet": "climate/lytko/(1)/state",
+            "topicSet": "climate/lytko/(1)/swing/set",
+            "checkValue": true,
+            "inFunc": "parseFloat(JSON.parse(value)['swing'])",
+            "map": {
+              "OFF": "off",
+              "SWING_ENABLED": "both",
+              "SWING_HORIZONTAL": "horizontal",
+              "SWING_VERTICAL": "vertical"
+            }
+          }
+        },
+        {
+          "type": "TemperatureDisplayUnits",
+          "link": {
+            "type": "String",
+            "topicGet": "climate/lytko/(1)/state",
+            "checkValue": true,
+            "inFunc": "parseFloat(JSON.parse(value)['unit'])",
+            "map": {
+              "CELSIUS": "Celsius",
+              "FAHRENHEIT": "FAHRENHEIT"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
