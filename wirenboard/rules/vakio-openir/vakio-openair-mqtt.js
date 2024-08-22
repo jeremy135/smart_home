@@ -20,7 +20,7 @@ function createVakioOpenAir(params) {
   var mqttTopicSpeed = "Speed"; // 0 - 5
   var mqttTopicGate = "Gate"; // 1 - 4
   var mqttTopicTemp = "Temperature"; //  20
-  var mqttTopicHud = "Hud"; // 33
+  var mqttTopicHud = "Humidity"; // 33
 
   defineVirtualDevice(nameVirtualDevice, {
     title: "Vakio Open Air {}".format(topic),
@@ -34,11 +34,9 @@ function createVakioOpenAir(params) {
   });
   // manual | super_auto
   getDevice(nameVirtualDevice).addControl(mqttTopicWorkmode, {
-    type: "range",
+    type: "switch",
     order: 1,
-    min: 0,
-    max: 1,
-    value: 0,
+    value: false,
   });
   // Done
   getDevice(nameVirtualDevice).addControl(mqttTopicSpeed, {
@@ -83,14 +81,14 @@ function createVakioOpenAir(params) {
   );
   sendTranslate(
     mqttTopicWorkmode,
-    '{"type": "range","order":"1","max":"6","readonly":0,"title":{"ru": "Режим работы"}}'
+    '{"type": "switch","order":"1","readonly":0,"title":{"ru": "Режим работы - авто"}}'
   );
   sendTranslate(
     mqttTopicSpeed,
     '{"type": "range","order":"2","max":"5","readonly":0,"title":{"ru": "Скорость"}}'
   );
   sendTranslate(
-    mqttTopicSpeed,
+    mqttTopicGate,
     '{"type": "range","order":"2","max":"4","readonly":0,"title":{"ru": "Позиция заслонки"}}'
   );
   sendTranslate(
@@ -132,8 +130,21 @@ function createVakioOpenAir(params) {
       true
     );
   });
+  // subscribe wirenbord ui/mqtt for workmode
+  trackMqtt(
+    "/devices/{}/controls/{}/on".format(nameVirtualDevice, mqttTopicSpeed),
+    function (message) {
+      if (message.value === true) {
+        publishMqtt("workmode", "super_auto");
+      } else if (message.value === false) {
+        publishMqtt("workmode", "manual");
+      }
+    }
+  );
   // subscribe VAKIO workmode
   trackMqtt("{}/workmode".format(topic), function (message) {
+    //log.info("/workmode name: {}, value: {}".format(message.topic, message.value));
+    
     switch (message.value) {
       case "manual":
         publish(
@@ -141,7 +152,7 @@ function createVakioOpenAir(params) {
             nameVirtualDevice,
             mqttTopicWorkmode
           ),
-          0,
+          false,
           2,
           true
         );
@@ -152,7 +163,7 @@ function createVakioOpenAir(params) {
             nameVirtualDevice,
             mqttTopicWorkmode
           ),
-          1,
+          true,
           2,
           true
         );
@@ -203,7 +214,7 @@ function createVakioOpenAir(params) {
     );
   });
   // subscribe VAKIO hud
-  trackMqtt("{}/temp".format(topic), function (message) {
+  trackMqtt("{}/hud".format(topic), function (message) {
     publish(
       "/devices/{}/controls/{}".format(nameVirtualDevice, mqttTopicHud),
       parseInt(message.value, 10),
