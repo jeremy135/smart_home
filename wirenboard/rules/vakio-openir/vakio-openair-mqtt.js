@@ -23,7 +23,7 @@ function createVakioOpenAir(params) {
   var mqttTopicHud = "Humidity"; // 33
 
   defineVirtualDevice(nameVirtualDevice, {
-    title: "Vakio Open Air {}".format(topic),
+    title: "Vakio Open Air {}".format(nameVirtualDevice),
     cells: {},
   });
 
