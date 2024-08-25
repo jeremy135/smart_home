@@ -9,7 +9,7 @@ https://item.taobao.com/item.htm?spm=a21n57.1.0.0.30bd523cugZ9fm&id=646456865197
 
 ## Как использовать 
 
-1. Скопировать в папку /etc/wb-mqtt-serial.conf.d/template
+1. Скопировать в папку /etc/wb-mqtt-serial.conf.d/templates
 
 2. Перезапустить сервис 
 ```
