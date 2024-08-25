@@ -26,7 +26,7 @@
             {
                 "name": "Humidity",
                 "reg_type": "holding",
-                "address": 1,
+                "address": 0,
                 "type": "rel_humidity",
                 "group": "channels",
                 "readonly": true,
