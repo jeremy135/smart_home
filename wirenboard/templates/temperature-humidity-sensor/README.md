@@ -7,7 +7,7 @@
 
 ## Как использовать 
 
-1. Скопировать в папку /etc/wb-mqtt-serial.conf.d/template
+1. Скопировать в папку /etc/wb-mqtt-serial.conf.d/templates
 
 2. Перезапустить сервис 
 ```
