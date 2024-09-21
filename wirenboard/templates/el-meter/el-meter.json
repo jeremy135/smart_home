@@ -1,0 +1,79 @@
+{
+    "device_type": "power_meter_cn",
+    "title": "Power meter",
+    "group": "g-power-meter",
+    "device": {
+        "name": "Power meter DDSR9588",
+        "id": "DDSR9588",
+        "channels": [
+            {
+                "name": "Voltage",
+                "reg_type": "input",
+                "address": "0",
+                "format": "float",
+                "type": "value",
+                "readonly": true,
+                "scale": 1.0,
+                "units": "V"
+            },
+            {
+                "name": "Current",
+                "reg_type": "input",
+                "address": "8",
+                "format": "float",
+                "type": "value",
+                "readonly": true,
+                "scale": 1.0,
+                "units": "A"
+            },
+            {
+                "name": "Active power",
+                "reg_type": "input",
+                "address": "0x0012",
+                "format": "float",
+                "type": "power",
+                "readonly": true,
+                "scale": 1.0,
+                "units": "Watt"
+            },
+            {
+                "name": "Power consumption",
+                "reg_type": "input",
+                "address": "0x0100",
+                "format": "float",
+                "type": "value",
+                "scale": 1.0,
+                "readonly": true,
+                "units": "kWh"
+            },
+            {
+                "name": "Frequency",
+                "reg_type": "input",
+                "address": "0x0036",
+                "format": "float",
+                "type": "value",
+                "scale": 1.0,
+                "readonly": true,
+                "units": "Hz"
+            },
+            {
+                "name": "Power factory",
+                "reg_type": "input",
+                "address": "0x002a",
+                "format": "float",
+                "type": "value",
+                "scale": 1.0,
+                "readonly": true,
+                "units": "Cos"
+            }
+        ],
+        "translations": {
+            "ru": {
+                "Voltage": "Напряжение",
+                "Active power": "Текущая мощность",
+                "Current": "Сила тока",
+                "Power consumption": "Потребленная энергия"
+            }
+        }
+    }
+}

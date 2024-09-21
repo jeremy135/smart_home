@@ -1,0 +1,92 @@
+{
+    "name": "Power meter",
+    "manufacturer": "China",
+    "model": "DDSR9588",
+    "services": [
+      {
+        "type": "C_AmpereMeter",
+        "characteristics": [
+          {
+            "type": "C_Ampere",
+            "link": {
+              "type": "Float",
+              "topicSearch": "/devices/(DDSR9588_[0-9]{1,3})/controls/Current",
+              "topicGet": "/devices/(1)/controls/Current",
+              "minStep": 0.1,
+              "checkValue": true
+            }
+          }
+        ]
+      },
+      {
+        "type": "C_WattMeter",
+        "characteristics": [
+          {
+            "type": "C_Watt",
+            "link": {
+              "type": "Float",
+              "topicGet": "/devices/(1)/controls/Active power",
+              "minStep": 0.1,
+              "checkValue": true
+            }
+          }
+        ]
+      },
+      {
+        "type": "C_VoltMeter",
+        "characteristics": [
+          {
+            "type": "C_Volt",
+            "link": {
+              "type": "Float",
+              "topicGet": "/devices/(1)/controls/Voltage",
+              "minStep": 0.1,
+              "checkValue": true
+            }
+          }
+        ]
+      },
+      {
+        "type": "C_KiloWattHourMeter",
+        "characteristics": [
+          {
+            "type": "C_KiloWattHour",
+            "link": {
+              "type": "Float",
+              "topicGet": "/devices/(1)/controls/Power consumption",
+              "minStep": 0.1,
+              "checkValue": true
+            }
+          }
+        ]
+      },
+      {
+        "type": "C_PowerFactorMeter",
+        "characteristics": [
+          {
+            "type": "C_PowerFactor",
+            "link": {
+              "type": "Float",
+              "topicGet": "/devices/(1)/controls/Power factory",
+              "minStep": 0.1,
+              "checkValue": true
+            }
+          }
+        ]
+      },
+      {
+        "type": "C_FrequencyMeter",
+        "characteristics": [
+          {
+            "type": "C_Frequency",
+            "link": {
+              "type": "Float",
+              "topicGet": "/devices/(1)/controls/Frequency",
+              "minStep": 0.1,
+              "checkValue": true
+            }
+          }
+        ]
+      }
+    ]
+  }
