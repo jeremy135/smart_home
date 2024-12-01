@@ -20,6 +20,7 @@
                 "type": "temperature",
                 "group": "channels",
                 "readonly": true,
+                "format": "s16",
                 "scale": 0.1,
                 "read_period_ms": 10000
             },
