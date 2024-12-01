@@ -37,6 +37,7 @@
                 "group": "channels",
                 "readonly": true,
                 "scale": 0.1,
+                "format": "s16",
                 "read_period_ms": 10000
             },
             {
