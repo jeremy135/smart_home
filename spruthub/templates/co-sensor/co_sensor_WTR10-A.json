@@ -1,1 +1,28 @@
 
+{
+    "name": "CO Sensor",
+    "manufacturer": "China",
+    "model": "WTR10-A",
+    "services": [
+
+      {
+        "type": "CarbonMonoxideSensor",
+        "logics": [
+          {
+            "type": "CarbonMonoxideDetectedFromCarbonMonoxideLevel"
+          }
+        ],
+        "characteristics": [
+          {
+            "type": "CarbonMonoxideLevel",
+            "link": {
+              "type": "Integer",
+              "topicGet": "/devices/(1)/controls/CO",
+              "minStep": 1,
+              "checkValue": true
+            }
+          }
+        ]
+      }
+    ]
+  }
