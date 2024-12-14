@@ -17,6 +17,7 @@
             "type": "CarbonMonoxideLevel",
             "link": {
               "type": "Integer",
+              "topicSearch": "/devices/(co_sensor_WTR10-A_[0-9]{1,3})/controls/Current",
               "topicGet": "/devices/(1)/controls/CO",
               "minStep": 1,
               "checkValue": true
