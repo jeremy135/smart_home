@@ -1,1 +1,51 @@
-
+{
+    "device_type": "co_sensor_WTR10-A",
+    "title": "CO sensor WTR10-A",
+    "group": "g-climate-sensor",
+    "device": {
+        "name": "CO sensor WTR10-A",
+        "id": "co_sensor_WTR10-A",
+        "groups": [
+            {
+                "title": "Channels",
+                "id": "channels",
+                "order": 0
+            },
+            {
+                "title": "Settings",
+                "id": "settings",
+                "order": 1
+            }
+        ],
+        "parameters": {
+            "modbus_address": {
+                "title": "Modbus adress",
+                "address": 64,
+                "reg_type": "holding",
+                "min": 1,
+                "max": 256,
+                "default": 1,
+                "order": 1
+            }
+        },
+        "channels": [
+            {
+                "name": "CO",
+                "reg_type": "holding",
+                "address": 0,
+                "type": "concentration",
+                "group": "channels",
+                "readonly": true,
+                "units": "ppm",
+                "scale": 1,
+                "read_period_ms": 10000
+            }
+        ],
+        "translations": {
+            "ru": {
+                "Channels": "Каналы",
+                "CO": "Уровень CO"
+            }
+        }
+    }
+}
