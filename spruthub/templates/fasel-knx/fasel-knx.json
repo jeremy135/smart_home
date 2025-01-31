@@ -1,0 +1,55 @@
+{
+    "manufacturer": "Fasel KNX",
+    "model": "FCU3000",
+    "status": "Done",
+    "services": [
+        {
+            "type": "Thermostat",
+            "characteristics": [
+                {
+                    "type": "Active",
+                    "link": {
+                        "type": "Boolean",
+                        "topicGet": "/devices/Fasel/controls/Main switch",
+                        "topicSet": "/devices/Fasel/controls/Main switch/on",
+                        "checkValue": true,
+                        "inFunc": "value === 'true' || value === true ? 1 : 0"
+                    }
+                },
+                {
+                    "type": "TargetTemperature",
+                    "link": {
+                        "type": "String",
+                        "topicGet": "/devices/Fasel/controls/Temperature setpoint",
+                        "topicSet": "/devices/Fasel/controls/Temperature setpoint/on",
+                        "checkValue": true
+                    },
+                    "minValue": 20,
+                    "maxValue": 100,
+                    "minStep": 1
+                },
+                {
+                    "type": "CurrentTemperature",
+                    "link": {
+                        "type": "String",
+                        "topicGet": "/devices/Fasel/controls/Temperature",
+                        "checkValue": true
+                    }
+                },
+                {
+                    "type": "TargetHeatingCoolingState",
+                    "link": {
+                        "type": "Boolean",
+                        "topicGet": "/devices/Fasel/controls/Sauna start",
+                        "topicSet": "/devices/Fasel/controls/Sauna start/on",
+                        "map": {
+                            "OFF": false,
+                            "HEAT": true
+                        },
+                        "checkValue": true
+                    }
+                }
+            ]
+        }
+    ]
+}
