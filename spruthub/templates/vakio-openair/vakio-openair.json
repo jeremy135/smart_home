@@ -9,34 +9,34 @@
             "characteristics": [
                 {
                     "type": "RotationSpeed",
-                    "link": {
+                    "link": [{
                         "type": "Integer",
                         "topicSearch": "/devices/(Vakio_[0-9]{1,10})/controls/Speed/meta/type",
                         "topicGet": "/devices/(1)/controls/Speed",
                         "topicSet": "/devices/(1)/controls/Speed/on"
-                    },
+                    }],
                     "minValue": 0,
                     "maxValue": 7,
                     "minStep": 1
                 },
                 {
                     "type": "Active",
-                    "link": {
+                    "link": [{
                         "type": "Integer",
                         "topicGet": "/devices/(1)/controls/State",
                         "topicSet": "/devices/(1)/controls/State/on"
-                    }
+                    }]
                 }
             ]
         }
     ],
     "options": [
         {
-            "link": {
+            "link": [{
                 "type": "Integer",
                 "topicGet": "/devices/(1)/controls/Workmode",
                 "topicSet": "/devices/(1)/controls/Workmode/on"
-            },
+            }],
             "type": "Integer",
             "name": "Режим работы",
             "init": true,
@@ -72,83 +72,83 @@
             ]
         },
         {
-            "link": {
+            "link": [{
                 "type": "String",
                 "topicGet": "/devices/(1)/controls/Series"
-            },
+            }],
             "name": "Серия",
             "write": false,
             "input": "status",
             "type": "String"
         },
         {
-            "link": {
+            "link": [{
                 "type": "String",
                 "topicGet": "/devices/(1)/controls/SubType"
-            },
+            }],
             "name": "Тип вентилятора",
             "write": false,
             "input": "status",
             "type": "String"
         },
         {
-            "link": {
+            "link": [{
                 "type": "String",
                 "topicGet": "/devices/(1)/controls/xtalFreq",
                 "inFunc": "value + ' МГц'"
-            },
+            }],
             "name": "Частота кварцевого генератора",
             "write": false,
             "input": "status",
             "type": "String"
         },
         {
-            "link": {
+            "link": [{
                 "type": "String",
                 "topicGet": "/devices/(1)/controls/MAC"
-            },
+            }],
             "name": "MAC адрес",
             "input": "status",
             "write": false,
             "type": "String"
         },
         {
-            "link": {
+            "link": [{
                 "type": "String",
                 "topicGet": "/devices/(1)/controls/FW version"
-            },
+            }],
             "name": "Версия ПО",
             "input": "status",
             "write": false,
             "type": "String"
         },
         {
-            "link": {
+            "link": [{
                 "type": "Integer",
                 "topicGet": "/devices/(1)/controls/Connect",
                 "topicSet": "/devices/(1)/controls/Connect/on"
-            },
+            }],
             "type": "Boolean",
             "write": false,
             "name": "Соединение",
             "init": true
         },
         {
-            "link": {
+            "link": [{
                 "type": "Integer",
                 "topicGet": "/devices/(1)/controls/Reset",
                 "topicSet": "/devices/(1)/controls/Reset/on"
-            },
+            }],
             "type": "Boolean",
             "name": "Сбросить до заводских",
             "input": "button"
         },
         {
-            "link": {
+            "link": [{
                 "type": "Integer",
                 "topicGet": "/devices/(1)/controls/Update FW",
                 "topicSet": "/devices/(1)/controls/Update FW/on"
-            },
+            }],
             "type": "Boolean",
             "name": "Обновить ПО",
             "input": "button"
