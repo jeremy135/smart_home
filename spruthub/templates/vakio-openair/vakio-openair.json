@@ -2,6 +2,7 @@
     "name": "Бризер",
     "manufacturer": "VAKIO",
     "model": "OpenAir",
+    "modelId": "Vakio",
     "services": [
         {
             "name": "Бризер",
